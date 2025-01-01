@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerFlap : MonoBehaviour
 {
     public float force = 10.0f;
+    public int score = 0;
     private Rigidbody2D _rb;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -22,7 +25,16 @@ public class PlayerFlap : MonoBehaviour
             ApplyImpulse();
         }
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("ScorePoint"))
+        {
+            score++;
+            Debug.Log("Score: " + score);
+        }
+    }
+
     void ApplyImpulse()
     {
         float originalGravity = _rb.gravityScale;

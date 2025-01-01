@@ -48,7 +48,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  destroyPoint: {fileID: 0}
 --- !u!1 &1926109252384584662
 GameObject:
   m_ObjectHideFlags: 0
@@ -62,7 +61,7 @@ GameObject:
   - component: {fileID: 916191491587215767}
   m_Layer: 0
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -196,7 +195,7 @@ GameObject:
   - component: {fileID: 1547768148323195456}
   m_Layer: 0
   m_Name: Square (1)
-  m_TagString: Untagged
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -330,7 +329,7 @@ GameObject:
   - component: {fileID: 4558466102629630224}
   m_Layer: 0
   m_Name: ScorePoint
-  m_TagString: Untagged
+  m_TagString: ScorePoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
