@@ -22,7 +22,16 @@ public class SpawnBehaviour : MonoBehaviour
     {
         int index = Random.Range(0, pipes.Length);
         GameObject pipe = pipes[index];
+        //pipe.gameObject.GetComponent<PipeMovement>().speed = 1.0f;
         Instantiate(pipe, transform.position, Quaternion.identity);
+    }
+
+    public void setSpeed(float speed)
+    {
+        foreach (GameObject pipe in pipes)
+        {
+            pipe.gameObject.GetComponent<PipeMovement>().speed = speed;
+        }
     }
 
     // Update is called once per frame
