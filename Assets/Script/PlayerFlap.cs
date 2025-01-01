@@ -35,6 +35,18 @@ public class PlayerFlap : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Death"))
+        {
+            Debug.Log("Game Over");
+            
+            // Reset scene
+            Debug.Log("Scene reloaded");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
+
     void ApplyImpulse()
     {
         float originalGravity = _rb.gravityScale;

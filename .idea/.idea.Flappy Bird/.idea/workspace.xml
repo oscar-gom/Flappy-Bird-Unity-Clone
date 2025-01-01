@@ -5,7 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5be4ec5f-2e4d-4432-98f8-b08a113f5c99" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Script/GameControllerScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/GameControllerScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Player.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animation/Player.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Player_Animation.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animation/Player_Animation.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Pipes 2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Pipes 2.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Pipes 3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Pipes 3.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Pipes 4.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Pipes 4.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Pipes 5.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Pipes 5.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/PlayerFlap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/PlayerFlap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +104,7 @@
       <workItem from="1735582484111" duration="1852000" />
       <workItem from="1735747180132" duration="31000" />
       <workItem from="1735747228717" duration="6003000" />
-      <workItem from="1735760169744" duration="1096000" />
+      <workItem from="1735760169744" duration="1906000" />
     </task>
     <servers />
   </component>
