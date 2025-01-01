@@ -15,6 +15,7 @@ public class SpawnBehaviour : MonoBehaviour
     {
         timerOn = true;
         _timer = spawnRate;
+        SpawnRandomPipe();
     }
 
     private void SpawnRandomPipe()
