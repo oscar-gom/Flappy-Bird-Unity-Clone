@@ -41,6 +41,10 @@ public class GameControllerScript : MonoBehaviour
                 spawner.GetComponent<SpawnBehaviour>().spawnRate = 4.5f;
                 spawner.GetComponent<SpawnBehaviour>().setSpeed(1f);
                 break;
+            default:
+                spawner.GetComponent<SpawnBehaviour>().spawnRate = 5f;
+                spawner.GetComponent<SpawnBehaviour>().setSpeed(1f);
+                break;
         }
     }
 }
