@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5be4ec5f-2e4d-4432-98f8-b08a113f5c99" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Flappy Bird/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Flappy Bird/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Pipes.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Pipes.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PlayerFlap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/PlayerFlap.cs" afterDir="false" />
-    </list>
+    <list default="true" id="5be4ec5f-2e4d-4432-98f8-b08a113f5c99" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,6 +14,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/GameControllerScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/SpawnBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
@@ -97,7 +94,7 @@
       <updated>1735582481933</updated>
       <workItem from="1735582484111" duration="1852000" />
       <workItem from="1735747180132" duration="31000" />
-      <workItem from="1735747228717" duration="5041000" />
+      <workItem from="1735747228717" duration="5513000" />
     </task>
     <servers />
   </component>
