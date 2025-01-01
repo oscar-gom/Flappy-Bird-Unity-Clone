@@ -4,10 +4,14 @@ public class PlayerFlap : MonoBehaviour
 {
     public float force = 10.0f;
     private Rigidbody2D _rb;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        
+        // Set player initial position
+        transform.position = new Vector3(0, 0, 0);
     }
 
     // Update is called once per frame
