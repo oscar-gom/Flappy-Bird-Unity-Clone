@@ -28,7 +28,7 @@ public class PlayerFlap : MonoBehaviour
             _rb.simulated = false;
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !dead)
         {
             _rb.simulated = true;
             ApplyImpulse();
