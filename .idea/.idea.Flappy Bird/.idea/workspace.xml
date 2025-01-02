@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5be4ec5f-2e4d-4432-98f8-b08a113f5c99" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Script/PlayerFlap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/PlayerFlap.cs" afterDir="false" />
-    </list>
+    <list default="true" id="5be4ec5f-2e4d-4432-98f8-b08a113f5c99" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

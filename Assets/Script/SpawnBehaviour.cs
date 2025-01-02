@@ -15,14 +15,14 @@ public class SpawnBehaviour : MonoBehaviour
         int index = Random.Range(0, pipes.Length);
         GameObject pipe = pipes[index];
         Instantiate(pipe, transform.position, Quaternion.identity);
-        setSpeed(speed);
+        SetSpeed(speed);
     }
 
-    public void setSpeed(float speed)
+    public void SetSpeed(float newSpeed)
     {
         foreach (PipeMovement pipe in FindObjectsOfType<PipeMovement>())
         {
-            pipe.speed = speed;
+            pipe.speed = newSpeed;
         }
     }
 

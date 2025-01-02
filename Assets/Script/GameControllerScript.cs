@@ -34,7 +34,7 @@ public class GameControllerScript : MonoBehaviour
 
     private IEnumerator RestartGame()
     {
-        spawner.GetComponent<SpawnBehaviour>().setSpeed(0f);
+        spawner.GetComponent<SpawnBehaviour>().SetSpeed(0f);
         yield return new WaitForSeconds(1.0f);
         Debug.Log("Restarting game");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
