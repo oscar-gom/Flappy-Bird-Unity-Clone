@@ -10,12 +10,12 @@ public class PlayerFlap : MonoBehaviour
     private Rigidbody2D _rb;
     public bool dead;
     private bool _godMode;
-    
+    public bool started;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        
         // Set player initial position
         transform.position = new Vector3(0, 0, 0);
     }
@@ -23,13 +23,20 @@ public class PlayerFlap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!started)
+        {
+            _rb.simulated = false;
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
+            _rb.simulated = true;
             ApplyImpulse();
+            started = true;
         }
-        
+
         // God mode
-        if(Input.GetKeyDown(KeyCode.G))
+        if (Input.GetKeyDown(KeyCode.G))
         {
             Debug.Log("God mode activated");
             _godMode = true;
@@ -57,10 +64,10 @@ public class PlayerFlap : MonoBehaviour
     void ApplyImpulse()
     {
         float originalGravity = _rb.gravityScale;
-        
+
         _rb.gravityScale = 0;
         _rb.linearVelocity = Vector2.up * force;
-        
+
         _rb.gravityScale = originalGravity;
     }
 }

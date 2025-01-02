@@ -1,22 +1,13 @@
-using System.Collections;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class SpawnBehaviour : MonoBehaviour
 {
     public float spawnRate = 1.0f;
     private float _timer;
     public GameObject[] pipes;
+    public GameObject player;
 
     public bool timerOn;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        timerOn = true;
-        _timer = spawnRate;
-        SpawnRandomPipe();
-    }
 
     private void SpawnRandomPipe()
     {
@@ -37,6 +28,13 @@ public class SpawnBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (player.GetComponent<PlayerFlap>().started && !timerOn)
+        {
+            Debug.Log("Player started moving!");
+            timerOn = true;
+            _timer = spawnRate;
+        }
+
         if (timerOn)
         {
             if (_timer > 0)
@@ -46,13 +44,8 @@ public class SpawnBehaviour : MonoBehaviour
             else
             {
                 Debug.Log("Spawning pipe");
-                _timer = 0;
-                timerOn = false;
                 SpawnRandomPipe();
-
-                // Reset timer
                 _timer = spawnRate;
-                timerOn = true;
             }
         }
     }
