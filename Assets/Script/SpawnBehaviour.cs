@@ -28,9 +28,9 @@ public class SpawnBehaviour : MonoBehaviour
 
     public void setSpeed(float speed)
     {
-        foreach (GameObject pipe in pipes)
+        foreach (PipeMovement pipe in FindObjectsOfType<PipeMovement>())
         {
-            pipe.gameObject.GetComponent<PipeMovement>().speed = speed;
+            pipe.speed = speed;
         }
     }
 
