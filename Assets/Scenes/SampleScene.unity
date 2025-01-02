@@ -146,7 +146,7 @@ Transform:
   m_GameObject: {fileID: 105071741}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 8.5, y: 0, z: 0}
+  m_LocalPosition: {x: 4.6, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -219,13 +219,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1128d81edeba10c40963d3eae20e30d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 5
+  spawnRate: 1.15
   pipes:
   - {fileID: 1313403652449551221, guid: 374cc24b1fb6b964ab3e5392758c05d1, type: 3}
   - {fileID: 6429289444442871345, guid: 00c7b271c42f0e049b505ec7e0769f4e, type: 3}
   - {fileID: 5068448319459414098, guid: 4465a17f56e1a08449acfb7069c67c53, type: 3}
   - {fileID: 6025825158643987203, guid: ac088333740a2d749ba61a4c76bba0bf, type: 3}
   - {fileID: 4715658570564350940, guid: 3738060022c6b5b488cce5f251332f53, type: 3}
+  player: {fileID: 1647056286}
+  speed: 3.5
   timerOn: 0
 --- !u!1 &250585359
 GameObject:
@@ -783,6 +785,7 @@ MonoBehaviour:
   force: 6
   score: 0
   dead: 0
+  started: 0
 --- !u!58 &1647056288
 CircleCollider2D:
   m_ObjectHideFlags: 0
