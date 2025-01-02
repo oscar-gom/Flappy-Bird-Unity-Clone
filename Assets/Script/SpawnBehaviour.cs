@@ -6,6 +6,7 @@ public class SpawnBehaviour : MonoBehaviour
     private float _timer;
     public GameObject[] pipes;
     public GameObject player;
+    public float speed;
 
     public bool timerOn;
 
@@ -13,8 +14,8 @@ public class SpawnBehaviour : MonoBehaviour
     {
         int index = Random.Range(0, pipes.Length);
         GameObject pipe = pipes[index];
-        //pipe.gameObject.GetComponent<PipeMovement>().speed = 1.0f;
         Instantiate(pipe, transform.position, Quaternion.identity);
+        setSpeed(speed);
     }
 
     public void setSpeed(float speed)

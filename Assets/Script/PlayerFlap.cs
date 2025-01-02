@@ -65,9 +65,11 @@ public class PlayerFlap : MonoBehaviour
     {
         float originalGravity = _rb.gravityScale;
 
+        transform.rotation = Quaternion.Euler(0, 0, 15);
         _rb.gravityScale = 0;
         _rb.linearVelocity = Vector2.up * force;
 
         _rb.gravityScale = originalGravity;
+        transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 }
