@@ -1,5 +1,8 @@
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameControllerScript : MonoBehaviour
@@ -8,7 +11,7 @@ public class GameControllerScript : MonoBehaviour
     public GameObject player;
     public GameObject spawner;
     
-    private static int _score = 0;
+    private static int _score;
     private PlayerFlap _playerFlap;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -22,6 +25,13 @@ public class GameControllerScript : MonoBehaviour
     {
         scoreText.text = _playerFlap.score.ToString();
         _score = _playerFlap.score;
+        
+        if (_playerFlap.dead)
+        {
+            Debug.Log("Restarting game");
+            StartCoroutine(RestartGame());
+            spawner.GetComponent<SpawnBehaviour>().timerOn = false;
+        }
         
         switch (_score)
         {
@@ -43,8 +53,16 @@ public class GameControllerScript : MonoBehaviour
                 break;
             default:
                 spawner.GetComponent<SpawnBehaviour>().spawnRate = 5f;
-                spawner.GetComponent<SpawnBehaviour>().setSpeed(1f);
+                spawner.GetComponent<SpawnBehaviour>().setSpeed(0.5f);
                 break;
         }
+    }
+
+    private IEnumerator RestartGame()
+    {
+        spawner.GetComponent<SpawnBehaviour>().setSpeed(0f);
+        yield return new WaitForSeconds(1.0f);
+        Debug.Log("Restarting game");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

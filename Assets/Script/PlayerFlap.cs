@@ -1,12 +1,15 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerFlap : MonoBehaviour
 {
     public float force = 10.0f;
-    public int score = 0;
+    public int score;
     private Rigidbody2D _rb;
+    public bool dead;
+    private bool _godMode;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,6 +27,13 @@ public class PlayerFlap : MonoBehaviour
         {
             ApplyImpulse();
         }
+        
+        // God mode
+        if(Input.GetKeyDown(KeyCode.G))
+        {
+            Debug.Log("God mode activated");
+            _godMode = true;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -37,13 +47,10 @@ public class PlayerFlap : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Death"))
+        if (other.gameObject.CompareTag("Death") && !_godMode)
         {
             Debug.Log("Game Over");
-            
-            // Reset scene
-            Debug.Log("Scene reloaded");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            dead = true;
         }
     }
 
