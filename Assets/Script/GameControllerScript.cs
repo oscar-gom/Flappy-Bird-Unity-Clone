@@ -36,24 +36,24 @@ public class GameControllerScript : MonoBehaviour
         switch (_score)
         {
             case >= 20:
-                spawner.GetComponent<SpawnBehaviour>().spawnRate = 2f;
-                spawner.GetComponent<SpawnBehaviour>().setSpeed(2.5f);
+                spawner.GetComponent<SpawnBehaviour>().spawnRate = 1.5f;
+                spawner.GetComponent<SpawnBehaviour>().setSpeed(3.5f);
                 break;
             case >= 15:
-                spawner.GetComponent<SpawnBehaviour>().spawnRate = 3f;
-                spawner.GetComponent<SpawnBehaviour>().setSpeed(2f);
+                spawner.GetComponent<SpawnBehaviour>().spawnRate = 2f;
+                spawner.GetComponent<SpawnBehaviour>().setSpeed(3f);
                 break;
             case >= 10:
-                spawner.GetComponent<SpawnBehaviour>().spawnRate = 4f;
-                spawner.GetComponent<SpawnBehaviour>().setSpeed(1.5f);
+                spawner.GetComponent<SpawnBehaviour>().spawnRate = 3.5f;
+                spawner.GetComponent<SpawnBehaviour>().setSpeed(2.5f);
                 break;
             case >= 5:
-                spawner.GetComponent<SpawnBehaviour>().spawnRate = 4.5f;
-                spawner.GetComponent<SpawnBehaviour>().setSpeed(1f);
+                spawner.GetComponent<SpawnBehaviour>().spawnRate = 4f;
+                spawner.GetComponent<SpawnBehaviour>().setSpeed(2f);
                 break;
             default:
                 spawner.GetComponent<SpawnBehaviour>().spawnRate = 5f;
-                spawner.GetComponent<SpawnBehaviour>().setSpeed(0.5f);
+                spawner.GetComponent<SpawnBehaviour>().setSpeed(1f);
                 break;
         }
     }
