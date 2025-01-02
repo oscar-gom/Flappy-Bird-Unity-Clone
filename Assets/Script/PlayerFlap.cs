@@ -47,9 +47,9 @@ public class PlayerFlap : MonoBehaviour
         // Rotation interpolation
         transform.rotation = Quaternion.Lerp(transform.rotation, _targetRotation, _rotationSpeed * Time.deltaTime);
         
-        // Rotate when falling
         if (started)
         {
+            // Rotate when falling or going up
             if (_rb.linearVelocityY < 0)
             {
                 _targetRotation = Quaternion.Euler(0, 0, -25);
