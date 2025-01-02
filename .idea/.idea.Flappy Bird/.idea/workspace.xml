@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5be4ec5f-2e4d-4432-98f8-b08a113f5c99" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Script/GameControllerScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/GameControllerScript.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Script/PlayerFlap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Script/PlayerFlap.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

@@ -7,10 +7,12 @@ public class PlayerFlap : MonoBehaviour
 {
     public float force = 10.0f;
     public int score;
-    private Rigidbody2D _rb;
     public bool dead;
-    private bool _godMode;
     public bool started;
+    private Rigidbody2D _rb;
+    private bool _godMode;
+    private Quaternion _targetRotation;
+    private float _rotationSpeed = 10.0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -41,6 +43,26 @@ public class PlayerFlap : MonoBehaviour
             Debug.Log("God mode activated");
             _godMode = true;
         }
+        
+        // Rotation interpolation
+        transform.rotation = Quaternion.Lerp(transform.rotation, _targetRotation, _rotationSpeed * Time.deltaTime);
+        
+        // Rotate when falling
+        if (started)
+        {
+            if (_rb.linearVelocityY < 0)
+            {
+                _targetRotation = Quaternion.Euler(0, 0, -25);
+            }
+            else if (_rb.linearVelocityY > 0)
+            {
+                _targetRotation = Quaternion.Euler(0, 0, 25);
+            }
+        }
+        else
+        {
+            _targetRotation = Quaternion.Euler(0, 0, 0);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -64,12 +86,10 @@ public class PlayerFlap : MonoBehaviour
     void ApplyImpulse()
     {
         float originalGravity = _rb.gravityScale;
-
-        transform.rotation = Quaternion.Euler(0, 0, 15);
+        
         _rb.gravityScale = 0;
         _rb.linearVelocity = Vector2.up * force;
 
         _rb.gravityScale = originalGravity;
-        transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 }
