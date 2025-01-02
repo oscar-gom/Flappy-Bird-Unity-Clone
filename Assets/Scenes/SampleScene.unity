@@ -782,6 +782,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force: 6
   score: 0
+  dead: 0
 --- !u!58 &1647056288
 CircleCollider2D:
   m_ObjectHideFlags: 0
