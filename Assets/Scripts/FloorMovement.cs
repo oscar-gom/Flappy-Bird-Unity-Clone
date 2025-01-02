@@ -12,7 +12,7 @@ public class FloorMovement : MonoBehaviour
     private float _floorWidth;
     
     // Ensures that floors are together
-    private float _offset = 0.1f;
+    private float _offset = 0.11f;
 
     void Start()
     {
@@ -36,7 +36,7 @@ public class FloorMovement : MonoBehaviour
     {
         floor.transform.position += Vector3.left * (speed * Time.deltaTime);
 
-        if (floor.transform.position.x < -_floorWidth)
+        if (floor.transform.position.x < -_floorWidth - 0.5f)
         {
             float rightmostX = Mathf.Max(_floor1.transform.position.x, _floor2.transform.position.x, _floor3.transform.position.x);
             floor.transform.position = new Vector3(rightmostX + _floorWidth - _offset, _floorY, floor.transform.position.z);
