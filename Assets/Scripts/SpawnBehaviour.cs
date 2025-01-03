@@ -4,17 +4,33 @@ public class SpawnBehaviour : MonoBehaviour
 {
     public float spawnRate = 1.0f;
     private float _timer;
-    public GameObject[] pipes;
+    public GameObject pipe;
     public GameObject player;
     public float speed;
 
     public bool timerOn;
 
-    private void SpawnRandomPipe()
+    // Array of predefined heights
+    public float[] heights = { -3.0f, -2.0f, -1.0f, 0.0f, 1.0f, 2.0f, 3.0f };
+
+    private int _lastHeightIndex = -1;
+    private int _secondLastHeightIndex = -1;
+
+    private void SpawnPipe()
     {
-        int index = Random.Range(0, pipes.Length);
-        GameObject pipe = pipes[index];
-        Instantiate(pipe, transform.position, Quaternion.identity);
+        int randomIndex;
+        do
+        {
+            randomIndex = Random.Range(0, heights.Length);
+        } while (randomIndex == _lastHeightIndex && randomIndex == _secondLastHeightIndex);
+
+        _secondLastHeightIndex = _lastHeightIndex;
+        _lastHeightIndex = randomIndex;
+
+        float randomHeight = heights[randomIndex];
+        Vector3 spawnPosition = new Vector3(transform.position.x, transform.position.y + randomHeight, transform.position.z);
+
+        Instantiate(pipe, spawnPosition, Quaternion.identity);
         SetSpeed(speed);
     }
 
@@ -45,7 +61,7 @@ public class SpawnBehaviour : MonoBehaviour
             else
             {
                 Debug.Log("Spawning pipe");
-                SpawnRandomPipe();
+                SpawnPipe();
                 _timer = spawnRate;
             }
         }

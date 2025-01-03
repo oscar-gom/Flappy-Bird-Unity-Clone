@@ -448,15 +448,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnRate: 1.15
-  pipes:
-  - {fileID: 1313403652449551221, guid: 374cc24b1fb6b964ab3e5392758c05d1, type: 3}
-  - {fileID: 6429289444442871345, guid: 00c7b271c42f0e049b505ec7e0769f4e, type: 3}
-  - {fileID: 5068448319459414098, guid: 4465a17f56e1a08449acfb7069c67c53, type: 3}
-  - {fileID: 6025825158643987203, guid: ac088333740a2d749ba61a4c76bba0bf, type: 3}
-  - {fileID: 4715658570564350940, guid: 3738060022c6b5b488cce5f251332f53, type: 3}
+  pipe: {fileID: 1313403652449551221, guid: 374cc24b1fb6b964ab3e5392758c05d1, type: 3}
   player: {fileID: 1647056286}
   speed: 3.35
   timerOn: 0
+  minHeight: -1
+  maxHeight: 1
 --- !u!1 &211067088
 GameObject:
   m_ObjectHideFlags: 0
@@ -1601,6 +1598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d777a6e669b60e24d8ead38e0233c713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  duration: 0.4
 --- !u!1 &1080674605
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class StartUIAnimation : MonoBehaviour
 {
+    public float duration;
+    
     private Image _tapImage;
     private PlayerFlap _playerFlap;
 
@@ -19,9 +21,9 @@ public class StartUIAnimation : MonoBehaviour
     {
         while (!_playerFlap.started)
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(duration);
             _tapImage.enabled = false;
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(duration);
             _tapImage.enabled = true;
         }
     }
