@@ -2,13 +2,18 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameControllerScript : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
     public GameObject player;
     public GameObject spawner;
-    
+
+    [Header("UI Elements")] public Canvas startUI;
+    public Canvas gameOverUI;
+    public Canvas getReadyUI;
+
     private static int _score;
     private PlayerFlap _playerFlap;
 
@@ -23,12 +28,24 @@ public class GameControllerScript : MonoBehaviour
     {
         _score = _playerFlap.score;
         scoreText.text = _score.ToString();
-        
+
         if (_playerFlap.dead)
         {
             Debug.Log("Restarting game");
             StartCoroutine(RestartGame());
             spawner.GetComponent<SpawnBehaviour>().timerOn = false;
+        }
+
+        if (_playerFlap.started)
+        {
+            startUI.gameObject.SetActive(false);
+            getReadyUI.gameObject.SetActive(true);
+        }
+        else
+        {
+            startUI.gameObject.SetActive(true);
+            getReadyUI.gameObject.SetActive(false);
+            scoreText.gameObject.SetActive(false);
         }
     }
 

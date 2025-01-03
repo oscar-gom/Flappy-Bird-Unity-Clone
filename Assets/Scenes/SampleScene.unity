@@ -1501,7 +1501,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &659272701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1782,12 +1782,12 @@ GameObject:
   - component: {fileID: 1565231227}
   - component: {fileID: 1565231226}
   m_Layer: 5
-  m_Name: GetReady
+  m_Name: GetReadyUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1565231226
 MonoBehaviour:
   m_ObjectHideFlags: 0
