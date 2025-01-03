@@ -16,6 +16,7 @@ public class GameControllerScript : MonoBehaviour
 
     private static int _score;
     private PlayerFlap _playerFlap;
+    private bool _gameStarted;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -39,7 +40,12 @@ public class GameControllerScript : MonoBehaviour
         if (_playerFlap.started)
         {
             startUI.gameObject.SetActive(false);
-            getReadyUI.gameObject.SetActive(true);
+
+            if (!_gameStarted)
+            {
+                getReadyUI.gameObject.SetActive(true);
+                StartCoroutine(DisableGetReady());
+            }
         }
         else
         {
@@ -47,6 +53,14 @@ public class GameControllerScript : MonoBehaviour
             getReadyUI.gameObject.SetActive(false);
             scoreText.gameObject.SetActive(false);
         }
+    }
+
+    private IEnumerator DisableGetReady()
+    {
+        yield return new WaitForSeconds(1.5f);
+        getReadyUI.gameObject.SetActive(false);
+        scoreText.gameObject.SetActive(true);
+        _gameStarted = true;
     }
 
     private IEnumerator RestartGame()
