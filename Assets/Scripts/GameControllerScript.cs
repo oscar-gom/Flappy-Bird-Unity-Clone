@@ -1,4 +1,5 @@
 using System.Collections;
+using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -18,12 +19,30 @@ public class GameControllerScript : MonoBehaviour
     private PlayerFlap _playerFlap;
     private bool _gameStarted;
     private FloorMovement _floorMovement;
+    private int _bestScore;
+    private string _bestScorePath;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         _playerFlap = player.GetComponent<PlayerFlap>();
         _floorMovement = GameObject.Find("Floors").GetComponent<FloorMovement>();
+        _bestScorePath = Path.Combine(Application.persistentDataPath, "bestscore.txt");
+        LoadBestScore();
+    }
+
+    private void LoadBestScore()
+    {
+        if (File.Exists(_bestScorePath))
+        {
+            string bestScoreString = File.ReadAllText(_bestScorePath);
+            int.TryParse(bestScoreString, out _bestScore);
+        }
+    }
+    
+    private void SaveBestScore()
+    {
+        File.WriteAllText(_bestScorePath, _bestScore.ToString());
     }
 
     // Update is called once per frame
@@ -35,6 +54,17 @@ public class GameControllerScript : MonoBehaviour
         if (_playerFlap.dead)
         {
             gameOverUI.gameObject.SetActive(true);
+            TextMeshProUGUI nowText = GameObject.Find("ScoreText").GetComponent<TextMeshProUGUI>();
+            TextMeshProUGUI bestScoreText = GameObject.Find("BestScoreText").GetComponent<TextMeshProUGUI>();
+            
+            if (_bestScore < _score)
+            {
+                _bestScore = _score;
+                SaveBestScore();
+            }
+            bestScoreText.text = _bestScore.ToString();
+            nowText.text = _score.ToString();
+            
             scoreText.gameObject.SetActive(false);
             spawner.GetComponent<SpawnBehaviour>().SetSpeed(0);
             _floorMovement.speed = 0;
@@ -56,6 +86,7 @@ public class GameControllerScript : MonoBehaviour
             startUI.gameObject.SetActive(true);
             getReadyUI.gameObject.SetActive(false);
             scoreText.gameObject.SetActive(false);
+            gameOverUI.gameObject.SetActive(false);
         }
     }
 
@@ -67,10 +98,9 @@ public class GameControllerScript : MonoBehaviour
         _gameStarted = true;
     }
 
-    private IEnumerator RestartGame()
+    public void RestartGame()
     {
         spawner.GetComponent<SpawnBehaviour>().SetSpeed(0f);
-        yield return new WaitForSeconds(1.0f);
         Debug.Log("Restarting game");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
