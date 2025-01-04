@@ -40,8 +40,15 @@ public class PlayerFlap : MonoBehaviour
         // God mode
         if (Input.GetKeyDown(KeyCode.G))
         {
-            Debug.Log("God mode activated");
-            _godMode = true;
+            _godMode = !_godMode;
+            if (_godMode)
+            {
+                Debug.Log("God mode activated");
+            }
+            else
+            {
+                Debug.Log("God mode deactivated");
+            }
         }
         
         // Rotation interpolation

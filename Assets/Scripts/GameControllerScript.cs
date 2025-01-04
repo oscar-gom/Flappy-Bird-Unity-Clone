@@ -3,6 +3,7 @@ using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class GameControllerScript : MonoBehaviour
@@ -15,17 +16,21 @@ public class GameControllerScript : MonoBehaviour
     public Canvas gameOverUI;
     public Canvas getReadyUI;
 
-    private static int _score;
-    private PlayerFlap _playerFlap;
+    [Header("Score")]
+    public int score;
+    public int bestScore;
+    
+    [Header("Player")]
+    public  PlayerFlap playerFlap;
+    
     private bool _gameStarted;
     private FloorMovement _floorMovement;
-    private int _bestScore;
     private string _bestScorePath;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _playerFlap = player.GetComponent<PlayerFlap>();
+        playerFlap = player.GetComponent<PlayerFlap>();
         _floorMovement = GameObject.Find("Floors").GetComponent<FloorMovement>();
         _bestScorePath = Path.Combine(Application.persistentDataPath, "bestscore.txt");
         LoadBestScore();
@@ -36,34 +41,34 @@ public class GameControllerScript : MonoBehaviour
         if (File.Exists(_bestScorePath))
         {
             string bestScoreString = File.ReadAllText(_bestScorePath);
-            int.TryParse(bestScoreString, out _bestScore);
+            int.TryParse(bestScoreString, out bestScore);
         }
     }
     
     private void SaveBestScore()
     {
-        File.WriteAllText(_bestScorePath, _bestScore.ToString());
+        File.WriteAllText(_bestScorePath, bestScore.ToString());
     }
 
     // Update is called once per frame
     void Update()
     {
-        _score = _playerFlap.score;
-        scoreText.text = _score.ToString();
+        score = playerFlap.score;
+        scoreText.text = score.ToString();
 
-        if (_playerFlap.dead)
+        if (playerFlap.dead)
         {
             gameOverUI.gameObject.SetActive(true);
             TextMeshProUGUI nowText = GameObject.Find("ScoreText").GetComponent<TextMeshProUGUI>();
             TextMeshProUGUI bestScoreText = GameObject.Find("BestScoreText").GetComponent<TextMeshProUGUI>();
             
-            if (_bestScore < _score)
+            if (bestScore < score)
             {
-                _bestScore = _score;
+                bestScore = score;
                 SaveBestScore();
             }
-            bestScoreText.text = _bestScore.ToString();
-            nowText.text = _score.ToString();
+            bestScoreText.text = bestScore.ToString();
+            nowText.text = score.ToString();
             
             scoreText.gameObject.SetActive(false);
             spawner.GetComponent<SpawnBehaviour>().SetSpeed(0);
@@ -71,7 +76,7 @@ public class GameControllerScript : MonoBehaviour
             spawner.GetComponent<SpawnBehaviour>().timerOn = false;
         }
 
-        if (_playerFlap.started)
+        if (playerFlap.started)
         {
             startUI.gameObject.SetActive(false);
 
