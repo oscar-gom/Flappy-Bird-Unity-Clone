@@ -9,15 +9,18 @@ public class PlayerFlap : MonoBehaviour
     public int score;
     public bool dead;
     public bool started;
+    
     private Rigidbody2D _rb;
+    private AudioSource[] _sfx;
     private bool _godMode;
     private Quaternion _targetRotation;
-    private float _rotationSpeed = 10.0f;
+    private readonly float _rotationSpeed = 10.0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _sfx = GetComponents<AudioSource>();
         // Set player initial position
         transform.position = new Vector3(0, 0, 0);
     }
@@ -35,6 +38,7 @@ public class PlayerFlap : MonoBehaviour
             _rb.simulated = true;
             ApplyImpulse();
             started = true;
+            _sfx[0].Play();
         }
 
         // God mode
@@ -78,6 +82,7 @@ public class PlayerFlap : MonoBehaviour
         {
             score++;
             Debug.Log("Score: " + score);
+            _sfx[1].Play();
         }
     }
 
@@ -86,7 +91,12 @@ public class PlayerFlap : MonoBehaviour
         if (other.gameObject.CompareTag("Death") && !_godMode)
         {
             Debug.Log("Game Over");
+            if (!dead)
+            {
+                _sfx[2].Play();
+            }
             dead = true;
+            
         }
     }
 
