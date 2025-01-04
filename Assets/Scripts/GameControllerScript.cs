@@ -17,11 +17,13 @@ public class GameControllerScript : MonoBehaviour
     private static int _score;
     private PlayerFlap _playerFlap;
     private bool _gameStarted;
+    private FloorMovement _floorMovement;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         _playerFlap = player.GetComponent<PlayerFlap>();
+        _floorMovement = GameObject.Find("Floors").GetComponent<FloorMovement>();
     }
 
     // Update is called once per frame
@@ -32,8 +34,10 @@ public class GameControllerScript : MonoBehaviour
 
         if (_playerFlap.dead)
         {
-            Debug.Log("Restarting game");
-            StartCoroutine(RestartGame());
+            gameOverUI.gameObject.SetActive(true);
+            scoreText.gameObject.SetActive(false);
+            spawner.GetComponent<SpawnBehaviour>().SetSpeed(0);
+            _floorMovement.speed = 0;
             spawner.GetComponent<SpawnBehaviour>().timerOn = false;
         }
 
