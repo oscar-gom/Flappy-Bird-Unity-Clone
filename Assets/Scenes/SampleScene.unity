@@ -453,7 +453,7 @@ MonoBehaviour:
   spawnRate: 1.15
   pipe: {fileID: 1313403652449551221, guid: 374cc24b1fb6b964ab3e5392758c05d1, type: 3}
   player: {fileID: 1647056286}
-  speed: 3.15
+  speed: 3.05
   timerOn: 0
   heights:
   - -2
